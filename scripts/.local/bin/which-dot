@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    source tmux-sessionzer ".linux_dotfiles"
+    source ~/.local/bin/tmux-sessionizer ~/.unix_dotfiles
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    source tmux-sessionizer ".mac_dotfiles"
+    source ~/.local/bin/tmux-sessionizer ~/.mac_dotfiles
 fi
