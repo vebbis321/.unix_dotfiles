@@ -149,7 +149,7 @@ zsdoc/data
 !/tests/_output/.gitkeep
 
 ## this is annoying
-.lazy-lock.json
-.spell
+lazy-lock.json
+spell
 
 # End of https://www.toptal.com/developers/gitignore/api/vim,zsh,lua,macos,linux
