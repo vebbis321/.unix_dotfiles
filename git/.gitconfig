@@ -2,3 +2,6 @@
     name = thel
 	username = vebbis321
 	email = 57636432+vebbis321@users.noreply.github.com
+
+[init]
+  defaultBranch = main
