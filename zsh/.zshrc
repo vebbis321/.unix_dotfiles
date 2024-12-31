@@ -52,6 +52,8 @@ if [[ $(uname) == "Darwin" ]]; then
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 elif command -v dnf > /dev/null; then
     source /usr/share/fzf/shell/key-bindings.zsh
+    # alias fedora
+    alias wezterm='flatpak run org.wezfurlong.wezterm'
 else
     echo 'Unknown OS!'
 fi
