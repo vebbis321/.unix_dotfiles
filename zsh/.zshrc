@@ -54,7 +54,7 @@ elif command -v dnf > /dev/null; then
     # FEDORA
 
     # keychain
-    eval $(keychain --eval ~/.ssh/id_ed25519) > /dev/null 2>&1
+    eval $(keychain --eval --quiet ~/.ssh/id_ed25519) > /dev/null 2>&1
     # fzf 
     source /usr/share/fzf/shell/key-bindings.zsh
     # alias
