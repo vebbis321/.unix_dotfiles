@@ -40,7 +40,7 @@ keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 keymap.set("n", "<leader>cs", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 --todo
-keymap.set("n", "<leader>tt", ":e ~/todo.md<CR>")
+keymap.set("n", "<leader>tt", ":e ~/miscellaneous/todo.md<CR>")
 -- lazy
 keymap.set("n", "<leader>lz", ":Lazy<CR>")
 -- mason
