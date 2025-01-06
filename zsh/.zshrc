@@ -51,7 +51,14 @@ alias cl='clear'
 if [[ $(uname) == "Darwin" ]]; then
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 elif command -v dnf > /dev/null; then
+    # FEDORA
+
+    # keychain
+    eval $(keychain --eval --quiet ~/.ssh/id_ed25519) > /dev/null 2>&1
+    # fzf 
     source /usr/share/fzf/shell/key-bindings.zsh
+    # alias
+    alias wezterm='flatpak run org.wezfurlong.wezterm'
 else
     echo 'Unknown OS!'
 fi
