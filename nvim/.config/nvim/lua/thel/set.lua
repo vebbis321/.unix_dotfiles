@@ -50,3 +50,4 @@ opt.virtualedit = "block"
 opt.ignorecase = true
 opt.spell = true
 opt.spelllang = { "en_us" }
+opt.autoread = true

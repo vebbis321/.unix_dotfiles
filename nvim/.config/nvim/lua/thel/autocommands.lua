@@ -11,3 +11,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- auto sync file changes
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "VimResume", "CursorHold" }, {
+	pattern = "*",
+	command = "silent! checktime",
+})
