@@ -3,6 +3,14 @@ local theme = require("wezterm-dragon")
 
 local config = wezterm.config_builder()
 
+local is_linux = function()
+	return wezterm.target_triple:find("linux") ~= nil
+end
+
+if is_linux() then
+	config.dpi = 96
+end
+
 config.font = wezterm.font("Hack Nerd Font Mono")
 config.font_size = 22
 
