@@ -6,6 +6,7 @@ return {
 	-- build = "cd app && yarn install && git restore .",
 	init = function()
 		vim.g.mkdp_filetypes = { "markdown", "vimwiki" }
+		vim.g.mkdp_auto_close = 0
 	end,
 	ft = { "markdown" },
 }
