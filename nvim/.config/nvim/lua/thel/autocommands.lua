@@ -17,3 +17,16 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "VimResume", "CursorHol
 	pattern = "*",
 	command = "silent! checktime",
 })
+
+-- Autocommand to add headers for daily notes
+vim.api.nvim_create_augroup("DailyNotes", { clear = true })
+vim.api.nvim_create_autocmd("BufNewFile", {
+	group = "DailyNotes",
+	pattern = "~/wiki/daily_notes_*.md",
+	callback = function()
+		-- Always add the headers to the newly created file
+		vim.fn.append(0, "# Thoughts:")
+		vim.fn.append(1, "# Todos:")
+		vim.cmd("write") -- Save the file after adding headers
+	end,
+})

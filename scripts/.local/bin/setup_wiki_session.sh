@@ -9,10 +9,10 @@ if [ $? != 0 ]; then
 fi
 
 # Check if window 1 ("Questions") exists, if not, rename the first window
-tmux list-windows -t $SESSION_NAME | grep -q "Questions"
+tmux list-windows -t $SESSION_NAME | grep -q "Notes"
 if [ $? != 0 ]; then
     # Rename the first window to "Questions"
-    tmux rename-window -t $SESSION_NAME:1 "Questions"
+    tmux rename-window -t $SESSION_NAME:1 "Notes"
     tmux send-keys -t $SESSION_NAME:1 "nvim ~/wiki/index.md" C-m
 fi
 
