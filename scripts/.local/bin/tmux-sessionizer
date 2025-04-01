@@ -15,11 +15,20 @@ tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     tmux new-session -s $selected_name -c $selected
+    # Check if session is "wiki" and run setup_wiki_session.sh
+    if [[ $selected_name == "wiki" ]]; then
+        tmux send-keys -t $selected_name "bash ~/.local/bin/setup_wiki_session.sh" C-m
+    fi
     exit 0
 fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux new-session -ds $selected_name -c $selected
+    # Check if session is "wiki" and run setup_wiki_session.sh
+    if [[ $selected_name == "wiki" ]]; then
+        tmux send-keys -t $selected_name "bash ~/.local/bin/setup_wiki_session.sh" C-m
+    fi
 fi
 
 tmux switch-client -t $selected_name
+
