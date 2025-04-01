@@ -108,16 +108,6 @@ return {
 			},
 		})
 
-		lspconfig["ltex"].setup({
-			filetypes = { "markdown", "md" },
-			settings = {
-				ltex = {
-					language = "en",
-				},
-			},
-			on_attach = on_attach,
-		})
-
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,
