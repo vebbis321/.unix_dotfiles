@@ -18,15 +18,38 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "VimResume", "CursorHol
 	command = "silent! checktime",
 })
 
--- Autocommand to add headers for daily notes
-vim.api.nvim_create_augroup("DailyNotes", { clear = true })
-vim.api.nvim_create_autocmd("BufNewFile", {
-	group = "DailyNotes",
-	pattern = "~/wiki/daily_notes_*.md",
+-- auto reload diary and recall for new day and add headers
+vim.api.nvim_create_autocmd("BufRead", {
+	pattern = { "*/diary/*.md", "*/recall/*.md" },
 	callback = function()
-		-- Always add the headers to the newly created file
-		vim.fn.append(0, "# Thoughts:")
-		vim.fn.append(1, "# Todos:")
-		vim.cmd("write") -- Save the file after adding headers
+		local today = os.date("%Y-%m-%d")
+		local diary_path = vim.fn.expand("~/wiki/diary/" .. today .. ".md")
+		local recall_path = vim.fn.expand("~/wiki/recall/" .. today .. ".md")
+		local current_path = vim.fn.expand("%:p")
+
+		-- Function to check if a file is empty
+		local function is_empty(file)
+			local f = io.open(file, "r")
+			if f then
+				local content = f:read("*a")
+				f:close()
+				return content == ""
+			end
+			return true
+		end
+
+		-- If the opened file is outdated, switch to today's file
+		if current_path:match("/diary/") and current_path ~= diary_path then
+			vim.cmd("edit " .. diary_path)
+		elseif current_path:match("/recall/") and current_path ~= recall_path then
+			vim.cmd("edit " .. recall_path)
+		end
+
+		-- Insert headers if the file is new/empty
+		if current_path == diary_path and is_empty(diary_path) then
+			vim.fn.writefile({ "# Thoughts\n", "# Todos\n" }, diary_path)
+		elseif current_path == recall_path and is_empty(recall_path) then
+			vim.fn.writefile({ "# Fysikk\n", "# Matte\n" }, recall_path)
+		end
 	end,
 })
