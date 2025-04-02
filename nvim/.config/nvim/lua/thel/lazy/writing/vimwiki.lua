@@ -41,5 +41,11 @@ return {
 
 		local keymap = vim.keymap
 		keymap.set("n", "<C-Space>", "<Plug>VimwikiToggleListItem<CR>0")
+		keymap.set(
+			"n",
+			"<leader>wrc",
+			":e ~/wiki/recall/" .. os.date("%Y-%m-%d") .. ".md<CR>",
+			{ noremap = true, silent = true }
+		)
 	end,
 }
