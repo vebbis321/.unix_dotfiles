@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "VimResume", "CursorHol
 
 -- auto reload diary and recall for new day and add headers
 vim.api.nvim_create_autocmd("BufRead", {
-	pattern = { "*/diary/*.md", "*/recall/*.md" },
+	pattern = { "~/wiki/diary/*.md", "~/wiki/recall/*.md" },
 	callback = function()
 		local today = os.date("%Y-%m-%d")
 		local diary_path = vim.fn.expand("~/wiki/diary/" .. today .. ".md")
