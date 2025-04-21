@@ -40,11 +40,23 @@ return {
 		vim.g.vimwiki_markdown_link_ext = 1 -- add markdown file extension when generating links
 
 		local keymap = vim.keymap
-		-- keymap.set("n", "<C-Space>", "<Plug>VimwikiToggleListItem<CR>0")
-		keymap.set("n", "<C-Space>", function()
+		keymap.set("n", "<C-Space>", "<Plug>VimwikiToggleListItem<CR>0")
+		vim.keymap.set("n", "<C-t>", function()
+			-- Save the current cursor position
 			local pos = vim.api.nvim_win_get_cursor(0)
-			vim.cmd("silent! call vimwiki#ToggleListItem()")
+
+			-- Search for the nearest checkbox above the cursor
+			vim.cmd("normal! ?\\- \\[ \\] <CR>")
+
+			-- If a checkbox is found, toggle it
+			if vim.fn.search("\\- \\[ \\]") > 0 then
+				vim.cmd("VimwikiToggleListItem")
+			end
+
+			-- Restore the cursor position
 			vim.api.nvim_win_set_cursor(0, pos)
-		end, { desc = "Toggle checkbox (stay in place)" })
+			vim.api.nvim_put({ "- [ ] " }, "l", true, true)
+			vim.cmd("startinsert!")
+		end, { desc = "Toggle checkbox above and crea new checkbox on next line" })
 	end,
 }
