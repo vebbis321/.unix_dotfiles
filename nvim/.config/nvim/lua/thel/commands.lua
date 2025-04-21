@@ -17,7 +17,8 @@ function M.handle_create_file(path)
 	local file, err = io.open(path, "w")
 	if file then
 		print("File created: " .. path)
-		local header = "# Fysikk:\n\n# Matte:"
+		local subheader = "## Spørsmål\n\n## Forklar\n\n"
+		local header = "# Fysikk:\n\n" .. subheader .. "# Matte:\n\n" .. subheader
 		file:write(header)
 		file:close()
 	else

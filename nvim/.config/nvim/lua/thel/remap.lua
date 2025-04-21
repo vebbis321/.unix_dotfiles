@@ -45,13 +45,3 @@ keymap.set("n", "<leader>tt", ":e ~/miscellaneous/todo.md<CR>")
 keymap.set("n", "<leader>lz", ":Lazy<CR>")
 -- mason
 keymap.set("n", "<leader>ms", ":Mason<CR>")
-
-vim.keymap.set("n", "<C-q>", function()
-	vim.api.nvim_put({ "- [ ] " }, "l", true, true)
-	vim.cmd("startinsert!")
-end, { desc = "Insert checkbox" })
-
-vim.keymap.set("n", "<C-a>", function()
-	vim.api.nvim_put({ "\t- " }, "l", true, true)
-	vim.cmd("startinsert!")
-end, { desc = "Insert answer line" })

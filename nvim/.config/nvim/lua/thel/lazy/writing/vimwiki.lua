@@ -41,22 +41,5 @@ return {
 
 		local keymap = vim.keymap
 		keymap.set("n", "<C-Space>", "<Plug>VimwikiToggleListItem<CR>0")
-		vim.keymap.set("n", "<C-t>", function()
-			-- Save the current cursor position
-			local pos = vim.api.nvim_win_get_cursor(0)
-
-			-- Search for the nearest checkbox above the cursor
-			vim.cmd("normal! ?\\- \\[ \\] <CR>")
-
-			-- If a checkbox is found, toggle it
-			if vim.fn.search("\\- \\[ \\]") > 0 then
-				vim.cmd("VimwikiToggleListItem")
-			end
-
-			-- Restore the cursor position
-			vim.api.nvim_win_set_cursor(0, pos)
-			vim.api.nvim_put({ "- [ ] " }, "l", true, true)
-			vim.cmd("startinsert!")
-		end, { desc = "Toggle checkbox above and crea new checkbox on next line" })
 	end,
 }
