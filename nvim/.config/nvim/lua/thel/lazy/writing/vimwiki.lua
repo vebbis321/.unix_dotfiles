@@ -40,6 +40,11 @@ return {
 		vim.g.vimwiki_markdown_link_ext = 1 -- add markdown file extension when generating links
 
 		local keymap = vim.keymap
-		keymap.set("n", "<C-Space>", "<Plug>VimwikiToggleListItem<CR>0")
+		-- keymap.set("n", "<C-Space>", "<Plug>VimwikiToggleListItem<CR>0")
+		keymap.set("n", "<C-Space>", function()
+			local pos = vim.api.nvim_win_get_cursor(0)
+			vim.cmd("silent! call vimwiki#ToggleListItem()")
+			vim.api.nvim_win_set_cursor(0, pos)
+		end, { desc = "Toggle checkbox (stay in place)" })
 	end,
 }
