@@ -1,1 +1,1 @@
-require("thel")
+require("config")
