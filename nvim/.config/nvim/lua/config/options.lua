@@ -46,6 +46,7 @@ opt.isfname:append("@-@")
 opt.updatetime = 50
 
 -- nois
+opt.clipboard = "unnamedplus"
 opt.virtualedit = "block"
 opt.ignorecase = true
 opt.spell = false
