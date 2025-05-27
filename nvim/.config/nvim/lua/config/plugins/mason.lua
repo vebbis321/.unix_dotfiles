@@ -14,7 +14,7 @@ return {
                 "marksman",
             },
         }
-        require("mason-tool-installer.nvim").setup({
+        require("mason-tool-installer").setup({
             ensure_installed = {
                 "stylua", -- lua formatter
                 "ruff",   -- python linter + formatter
