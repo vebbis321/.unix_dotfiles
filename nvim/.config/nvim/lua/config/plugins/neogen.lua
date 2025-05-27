@@ -18,7 +18,7 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>ng", function()
+		vim.keymap.set("n", "<leader>gd", function()
 			neogen.generate()
 		end)
 	end,
