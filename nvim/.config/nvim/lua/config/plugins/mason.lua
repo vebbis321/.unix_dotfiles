@@ -2,12 +2,23 @@ return {
     "mason-org/mason.nvim",
     dependencies = {
         "mason-org/mason-lspconfig.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim"
     },
     config = function()
-        local mason = require("mason").setup {}
-        local mason_lsp = require("mason-lspconfig").setup {
-            automatic_enable = false
+        require("mason").setup {}
+        require("mason-lspconfig").setup {
+            automatic_enable = false,
+            ensure_installed = {
+                "lua_ls",
+                "basedpyright",
+                "marksman",
+            },
         }
+        require("WhoIsSethDaniel/mason-tool-installer.nvim").setup({
+            ensure_installed = {
+                "stylua", -- lua formatter
+                "ruff",   -- python linter + formatter
+            },
+        })
     end
 }
-
