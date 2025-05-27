@@ -1,6 +1,9 @@
 require("config")
 
-vim.lsp.enable({ "luals" })
+vim.lsp.enable({
+    "luals",
+    "basedpyright",
+})
 vim.diagnostic.config({
-	virtual_text = true,
+    virtual_text = true,
 })
