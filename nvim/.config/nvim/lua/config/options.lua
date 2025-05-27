@@ -49,6 +49,6 @@ opt.updatetime = 50
 opt.clipboard = "unnamedplus"
 opt.virtualedit = "block"
 opt.ignorecase = true
-opt.spell = false
+opt.spell = true
+opt.spelllang = { "en_us" }
 opt.autoread = true
-
