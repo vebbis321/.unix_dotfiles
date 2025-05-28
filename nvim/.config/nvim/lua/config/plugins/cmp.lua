@@ -9,11 +9,11 @@ return {
 
 			["<C-p>"] = {},
 			["<C-n>"] = {},
-			["<C-k>"] = { "select_prev" },
-			["<C-j>"] = { "select_next" },
+			["<C-k>"] = { "select_prev", "fallback" },
+			["<C-j>"] = { "select_next", "fallback" },
 
 			["<C-y>"] = {},
-			["<CR>"] = { "select_and_accept" },
+			["<CR>"] = { "select_and_accept", "fallback" },
 		},
 		appearance = {
 			nerd_font_variant = "mono",
