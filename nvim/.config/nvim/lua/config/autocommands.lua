@@ -6,6 +6,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(ev) end,
-})
+-- vim.api.nvim_create_autocmd("LspAttach", {
+-- 	-- maybe
+-- })

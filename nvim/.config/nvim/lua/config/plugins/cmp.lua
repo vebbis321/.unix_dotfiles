@@ -14,8 +14,6 @@ return {
 
 			["<C-y>"] = {},
 			["<CR>"] = { "select_and_accept" },
-
-			["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
 		},
 		appearance = {
 			nerd_font_variant = "mono",
