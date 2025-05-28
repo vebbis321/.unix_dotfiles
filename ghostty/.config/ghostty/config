@@ -2,6 +2,7 @@ theme = Kanagawa Dragon
 background = #000000
 background-opacity = 0.75
 background-blur-radius = 6
+foreground = #c5c9c5
 
 font-family = Hack Nerd Font Mono
 font-size = 22
