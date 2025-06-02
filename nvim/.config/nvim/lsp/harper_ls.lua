@@ -3,6 +3,7 @@ return {
 		"harper-ls",
 		"--stdio",
 	},
+	filetypes = { "markdown", "markdown.mdx" },
 	root_markers = {
 		".git",
 	},
