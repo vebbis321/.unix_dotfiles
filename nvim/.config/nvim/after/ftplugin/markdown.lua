@@ -1,5 +1,5 @@
 local opt = vim.opt
-opt.spell = true
+opt.spell = false
 opt.spelllang = { "en_us" }
 opt.linebreak = true
 opt.colorcolumn = "80"

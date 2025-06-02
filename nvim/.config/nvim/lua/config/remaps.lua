@@ -26,6 +26,9 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- paste over
 keymap.set("x", "<leader>p", [["_dP]])
 
+-- spell
+keymap.set({ "n", "i", "v" }, "<leader>ts", ":set spell!<CR>")
+
 -- nope
 keymap.set("n", "Q", "<nop>")
 keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
