@@ -13,7 +13,10 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "VimResume", "CursorHol
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		-- vim.keymap.set("n", "ge", vim.diagnostic.open_float() , buffer = {0})
+	callback = function(e)
+		local opts = { buffer = e.buf }
+		vim.keymap.set("n", "<leader>vd", function()
+			vim.diagnostic.open_float()
+		end, opts)
 	end,
 })
