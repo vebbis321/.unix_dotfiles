@@ -29,9 +29,7 @@ local seperation = "\n\n"
 
 local diary = function()
 	local header = "# " .. date
-	local todo = "## Todo:"
-	local important = "## Important:"
-	return header .. seperation .. todo .. seperation .. important
+	return header
 end
 
 local recall = function()
