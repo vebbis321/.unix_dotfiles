@@ -36,7 +36,6 @@ opt.backspace = "indent,eol,start"
 opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.colorcolumn = "100"
-opt.linebreak = true
 opt.textwidth = 98
 opt.cursorline = true
 opt.background = "dark"
@@ -45,10 +44,7 @@ opt.scrolloff = 999
 opt.isfname:append("@-@")
 opt.updatetime = 50
 
--- nois
+-- paste
 opt.clipboard = "unnamedplus"
-opt.virtualedit = "block"
-opt.ignorecase = true
-opt.spell = true
-opt.spelllang = { "en_us" }
+-- sync
 opt.autoread = true

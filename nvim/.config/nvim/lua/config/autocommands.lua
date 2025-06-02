@@ -12,6 +12,8 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "VimResume", "CursorHol
 	command = "silent! checktime",
 })
 
--- vim.api.nvim_create_autocmd("LspAttach", {
--- 	-- maybe
--- })
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		-- vim.keymap.set("n", "ge", vim.diagnostic.open_float() , buffer = {0})
+	end,
+})

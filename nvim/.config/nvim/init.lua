@@ -1,9 +1,11 @@
 require("config")
 
 vim.lsp.enable({
-    "luals",
-    "basedpyright",
+	"luals",
+	"basedpyright",
+	"marksman",
 })
+
 vim.diagnostic.config({
-    virtual_text = true,
+	virtual_text = true,
 })

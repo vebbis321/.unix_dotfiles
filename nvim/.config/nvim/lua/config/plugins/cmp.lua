@@ -1,7 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	dependencies = { "rafamadriz/friendly-snippets" },
-
+	enabled = true,
 	version = "1.*",
 	opts = {
 		keymap = {
@@ -18,7 +18,6 @@ return {
 		appearance = {
 			nerd_font_variant = "mono",
 		},
-		signature = { enable = true },
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
 		},
