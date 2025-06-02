@@ -42,20 +42,27 @@ return {
 		})
 
 		local key = vim.keymap
-		key.set("n", "<space>ff", builtin.find_files)
-		key.set("n", "<space>fh", builtin.help_tags)
-		key.set("n", "<space>fs", builtin.live_grep)
-		key.set("n", "<space>fd", builtin.diagnostics)
-		key.set("n", "<space>fm", builtin.man_pages)
+		key.set("n", "<leader>ff", builtin.find_files)
+		key.set("n", "<leader>fh", builtin.help_tags)
+		key.set("n", "<leader>fs", builtin.live_grep)
+		key.set("n", "<leader>fd", builtin.diagnostics)
+		key.set("n", "<leader>fm", builtin.man_pages)
 
-		key.set("n", "<space>fr", function()
+		key.set("n", "<leader>fr", function()
 			builtin.find_files({ cwd = "~/repos/", prompt_title = "repos" })
 		end)
-		key.set("n", "<space>fc", function()
+		key.set("n", "<leader>fc", function()
 			builtin.find_files({ cwd = "~/code/", prompt_title = "code" })
 		end)
-		key.set("n", "<space>fn", function()
-			builtin.find_files({ cwd = "~/notes/", prompt_title = "notes" })
+		key.set("n", "<leader>fw", function()
+			builtin.find_files({ cwd = "~/wiki/", prompt_title = "wiki" })
 		end)
+
+		key.set("n", "<leader>fb", function()
+			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+				winblend = 10,
+				previewer = false,
+			}))
+		end, { desc = "Fuzzily search in current buffer" })
 	end,
 }
