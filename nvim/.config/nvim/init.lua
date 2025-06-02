@@ -1,9 +1,10 @@
 require("config")
 
 vim.lsp.enable({
-	"luals",
+	"lua_ls",
 	"basedpyright",
 	"marksman",
+	"harper_ls",
 })
 
 vim.diagnostic.config({

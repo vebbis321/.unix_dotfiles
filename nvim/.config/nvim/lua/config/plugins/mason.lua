@@ -12,6 +12,7 @@ return {
 				"lua_ls",
 				"basedpyright",
 				"marksman",
+				"harper_ls",
 			},
 		})
 		require("mason-tool-installer").setup({
