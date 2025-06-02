@@ -73,3 +73,6 @@ bindkey -s '^f' 'tmux-sessionizer^M'
 
 # nvim
 export EDITOR="/usr/bin/nvim"
+
+# man
+export MANPAGER='nvim +Man!'
