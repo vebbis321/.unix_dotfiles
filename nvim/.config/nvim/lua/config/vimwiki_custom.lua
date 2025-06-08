@@ -43,7 +43,6 @@ end
 local today_config = {
 	diary = { template = diary(), path = "diary" },
 	recall = { template = recall(), path = "recall" },
-	scratchpad = { template = nil, path = "scratchpad" },
 }
 
 local M = {}
@@ -69,12 +68,7 @@ vim.api.nvim_create_user_command("Recall", function()
 	M.open_today_with(today_config.recall)
 end, {})
 
-vim.api.nvim_create_user_command("Scratchpad", function()
-	M.open_today_with(today_config.scratchpad)
-end, {})
-
 vim.api.nvim_set_keymap("n", "<Leader>rc", ":Recall<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>sp", ":Scratchpad<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>w<leader>w", ":Diary<CR>", { noremap = true, silent = true })
 
 return M
