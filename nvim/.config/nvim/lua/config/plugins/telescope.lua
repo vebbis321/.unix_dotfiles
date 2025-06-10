@@ -35,7 +35,6 @@ return {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
-						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 					},
 				},
 			}),
@@ -64,5 +63,8 @@ return {
 				previewer = false,
 			}))
 		end, { desc = "Fuzzily search in current buffer" })
+
+		local live_multigrep = require("config.plugins_custom.live_multigrep")
+		key.set("n", "<leader>fg", live_multigrep.search)
 	end,
 }
