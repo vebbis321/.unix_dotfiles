@@ -2,8 +2,8 @@ local opt = vim.opt
 opt.spell = false
 opt.spelllang = { "en_us" }
 opt.linebreak = true
-opt.colorcolumn = "80"
-opt.textwidth = 78
+opt.colorcolumn = "70"
+opt.textwidth = 68
 opt.conceallevel = 2
 
 vim.diagnostic.enable(false)

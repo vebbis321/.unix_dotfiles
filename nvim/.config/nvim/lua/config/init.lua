@@ -1,5 +1,4 @@
 require("config.remaps")
 require("config.autocommands")
 require("config.options")
-require("config.vimwiki_custom")
 require("config.lazy")

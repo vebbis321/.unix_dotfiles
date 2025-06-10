@@ -45,9 +45,7 @@ local today_config = {
 	recall = { template = recall(), path = "recall" },
 }
 
-local M = {}
-
-function M.open_today_with(config)
+local function open_today_with(config)
 	local dir = vim.fn.expand("~") .. "/wiki/" .. config.path
 	local filepath = dir .. "/" .. date .. ".md"
 
@@ -60,15 +58,14 @@ function M.open_today_with(config)
 	vim.cmd("edit " .. filepath)
 end
 
-vim.api.nvim_create_user_command("Diary", function()
-	M.open_today_with(today_config.diary)
-end, {})
+local M = {}
 
-vim.api.nvim_create_user_command("Recall", function()
-	M.open_today_with(today_config.recall)
-end, {})
+function M.open_diary()
+	return open_today_with(today_config.diary)
+end
 
-vim.api.nvim_set_keymap("n", "<Leader>rc", ":Recall<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>w<leader>w", ":Diary<CR>", { noremap = true, silent = true })
+function M.open_recall()
+	return open_today_with(today_config.diary)
+end
 
 return M
