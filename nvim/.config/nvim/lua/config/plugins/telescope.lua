@@ -63,8 +63,5 @@ return {
 				previewer = false,
 			}))
 		end, { desc = "Fuzzily search in current buffer" })
-
-		local live_multigrep = require("config.plugins_custom.live_multigrep")
-		key.set("n", "<leader>fg", live_multigrep.search)
 	end,
 }
