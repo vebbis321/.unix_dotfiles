@@ -65,7 +65,7 @@ function M.open_diary()
 end
 
 function M.open_recall()
-	return open_today_with(today_config.diary)
+	return open_today_with(today_config.recall)
 end
 
 return M

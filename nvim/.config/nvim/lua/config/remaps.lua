@@ -8,6 +8,13 @@ keymap.set("n", "<leader>jf", vim.cmd.Ex)
 -- jump to previous file
 keymap.set("n", "<C-b>", "<C-^>")
 
+-- quickfix
+keymap.set("n", "<M-j>", ":cnext<CR>")
+keymap.set("n", "<M-k>", ":cprev<CR>")
+keymap.set("n", "<M-d>", function()
+	vim.diagnostic.setqflist({ open = true })
+end, { desc = "Quickfix: current buffer diagnostics" })
+
 -- let cursor stay in place after paste
 keymap.set("n", "J", "mzJ`z")
 
