@@ -8,6 +8,12 @@ keymap.set("n", "<leader>jf", vim.cmd.Ex)
 -- jump to previous file
 keymap.set("n", "<C-b>", "<C-^>")
 
+-- switching between buffers
+keymap.set("n", "<c-j>", "<c-w><c-j>")
+keymap.set("n", "<c-k>", "<c-w><c-k>")
+keymap.set("n", "<c-l>", "<c-w><c-l>")
+keymap.set("n", "<c-h>", "<c-w><c-h>")
+
 -- quickfix
 keymap.set("n", "<M-j>", ":cnext<CR>")
 keymap.set("n", "<M-k>", ":cprev<CR>")
