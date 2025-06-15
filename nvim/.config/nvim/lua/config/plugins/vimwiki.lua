@@ -46,6 +46,6 @@ return {
 		end, {})
 
 		keymap.set("n", "<Leader>w<leader>w", ":Diary<CR>", { noremap = true, silent = true })
-		keymap.set("n", "<Leader>rc", ":Recall<CR>", { noremap = true, silent = true })
+		keymap.set("n", "<Leader>sp", ":e ~/wiki/scratchpad.md<CR>", { noremap = true, silent = true })
 	end,
 }

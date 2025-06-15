@@ -24,15 +24,10 @@ local function handle_create_file_with(path, template)
 	end
 end
 
-local date = os.date("%Y-%m-%d")
 local seperation = "\n\n"
 
 local diary = function()
-	local header = "# " .. date
-	return header
-end
-
-local recall = function()
+	local date = os.date("%Y-%m-%d")
 	local header = "# " .. date
 	local physics = "## Physics:"
 	local maths = "## Math:"
@@ -42,10 +37,11 @@ end
 
 local today_config = {
 	diary = { template = diary(), path = "diary" },
-	recall = { template = recall(), path = "recall" },
+	-- recall = { template = recall(), path = "recall" },
 }
 
 local function open_today_with(config)
+	local date = os.date("%Y-%m-%d") -- get date at runtime
 	local dir = vim.fn.expand("~") .. "/wiki/" .. config.path
 	local filepath = dir .. "/" .. date .. ".md"
 
@@ -62,10 +58,6 @@ local M = {}
 
 function M.open_diary()
 	return open_today_with(today_config.diary)
-end
-
-function M.open_recall()
-	return open_today_with(today_config.recall)
 end
 
 return M

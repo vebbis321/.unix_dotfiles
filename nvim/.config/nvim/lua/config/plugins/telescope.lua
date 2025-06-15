@@ -57,7 +57,7 @@ return {
 			builtin.find_files({ cwd = "~/wiki/", prompt_title = "wiki" })
 		end)
 
-		key.set("n", "<leader>fb", function()
+		key.set("n", "<leader>fi", function()
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 				winblend = 10,
 				previewer = false,

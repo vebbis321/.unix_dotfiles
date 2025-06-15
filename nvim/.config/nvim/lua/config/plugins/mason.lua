@@ -11,8 +11,6 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"basedpyright",
-				"marksman",
-				"harper_ls",
 			},
 		})
 		require("mason-tool-installer").setup({

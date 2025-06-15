@@ -14,12 +14,54 @@ keymap.set("n", "<c-k>", "<c-w><c-k>")
 keymap.set("n", "<c-l>", "<c-w><c-l>")
 keymap.set("n", "<c-h>", "<c-w><c-h>")
 
--- quickfix
-keymap.set("n", "<M-j>", ":cnext<CR>")
-keymap.set("n", "<M-k>", ":cprev<CR>")
-keymap.set("n", "<M-d>", function()
-	vim.diagnostic.setqflist({ open = true })
-end, { desc = "Quickfix: current buffer diagnostics" })
+-- is_increasing means increase from main position (top and left)
+local function smart_resize(is_increasing, is_vertical)
+	local win = vim.api.nvim_get_current_win()
+	local pos = nil
+	local cmd = nil
+	if is_vertical then
+		pos = vim.api.nvim_win_get_position(win)[1] -- row
+		cmd = "resize"
+	else
+		pos = vim.api.nvim_win_get_position(win)[2] -- col
+		cmd = "vertical resize"
+	end
+
+	-- top and pushing up
+	-- left and pushing left
+	if pos == 0 and is_increasing then
+		vim.cmd(cmd .. "-2")
+
+	-- top and pushing down
+	-- left and pushing right
+	elseif pos == 0 and not is_increasing then
+		vim.cmd(cmd .. "+2")
+
+	-- bottom and pushing up
+	-- right and pushing left
+	elseif pos ~= 0 and is_increasing then
+		vim.cmd(cmd .. "+2")
+
+	-- bottom and pushing down
+	-- right and pushing right
+	elseif pos ~= 0 and not is_increasing then
+		vim.cmd(cmd .. "-2")
+	end
+end
+
+keymap.set("n", "<M-k>", function()
+	smart_resize(true, true)
+end)
+keymap.set("n", "<M-j>", function()
+	smart_resize(false, true)
+end)
+
+keymap.set("n", "<M-h>", function()
+	smart_resize(true, false)
+end)
+keymap.set("n", "<M-l>", function()
+	smart_resize(false, false)
+end)
 
 -- let cursor stay in place after paste
 keymap.set("n", "J", "mzJ`z")
