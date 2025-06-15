@@ -12,7 +12,7 @@ opt.expandtab = true
 opt.smartindent = true
 
 -- line wrapping
-opt.wrap = false
+opt.wrap = true
 
 -- search opttings
 opt.hlsearch = false
