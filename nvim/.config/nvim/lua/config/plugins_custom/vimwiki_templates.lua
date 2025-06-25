@@ -36,7 +36,7 @@ local diary = function()
 end
 
 local today_config = {
-	diary = { template = diary(), path = "diary" },
+	diary = { template = diary, path = "diary" },
 	-- recall = { template = recall(), path = "recall" },
 }
 
@@ -48,7 +48,7 @@ local function open_today_with(config)
 	if file_exists(filepath) then
 		handle_file(filepath)
 	else
-		handle_create_file_with(filepath, config.template)
+		handle_create_file_with(filepath, config.template())
 	end
 
 	vim.cmd("edit " .. filepath)
